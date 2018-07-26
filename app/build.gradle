@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "eu.aero2x.andromedab"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 5
         versionName "1.2.2"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -26,21 +26,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha3', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
 
-    compile 'com.android.volley:volley:1.0.0'
-    compile 'com.github.stfalcon:chatkit:0.2.1'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.google.firebase:firebase-core:10.2.1'
-    compile 'com.google.firebase:firebase-crash:10.2.1'
-    compile 'com.github.javiersantos:AppUpdater:2.6.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.google.firebase:firebase-messaging:10.2.1'
-    compile 'com.android.support:customtabs:25.0.1'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.github.stfalcon:chatkit:0.3.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.google.firebase:firebase-crash:16.0.1'
+    implementation 'com.github.javiersantos:AppUpdater:2.6.1'
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta1'
+    implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    implementation 'androidx.browser:browser:1.0.0-beta01'
+    testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}
